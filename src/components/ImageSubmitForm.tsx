@@ -1,11 +1,9 @@
 import { FaRegFileImage } from "react-icons/fa";
+import { useFileContext } from "../../store/Context";
 
-interface submitData {
-    file: File | null,
-    setFile: React.Dispatch<React.SetStateAction<File | null>>
-}
 
-export default function ImageSubmitForm({ file, setFile }: submitData) {
+export default function ImageSubmitForm() {
+    const { setFile, file } = useFileContext();
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
     }
