@@ -2,7 +2,7 @@ import { useFileContext } from "../../store/Context";
 import Resizer from 'react-image-file-resizer';
 
 export default function DimensionForm() {
-    const { dimensions, file, setDimensions, compressedFile, setCompressedFile } = useFileContext();
+    const { dimensions, file, setDimensions, setCompressedFile } = useFileContext();
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (dimensions.height < 1 || dimensions.width < 1 || !file) {
