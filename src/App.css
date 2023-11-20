@@ -58,6 +58,7 @@ form label:hover {
   transform: scale(1);
 }
 
+.download--btn,
 button {
   border: none;
   outline: none;

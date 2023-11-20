@@ -2,14 +2,19 @@ import React, { createContext, useContext, useState, ReactNode, Dispatch, SetSta
 
 
 type dimension = {
-    width: number | null,
-    height: number | null,
+    width: number,
+    height: number,
 }
+
+type compressedFile = string;
+
+
+
 interface FileContext {
     file: File | null,
     setFile: Dispatch<SetStateAction<File | null>>,
-    compressedFile: File | null,
-    setCompressedFile: Dispatch<SetStateAction<File | null>>,
+    compressedFile: compressedFile,
+    setCompressedFile: Dispatch<SetStateAction<compressedFile>>,
     dimensions: dimension,
     setDimensions: Dispatch<SetStateAction<dimension>>,
 }
@@ -19,10 +24,10 @@ export const fileContext = createContext<FileContext | null>(null);
 
 export default function FileContextProvider({ children }: { children: ReactNode }) {
     const [file, setFile] = useState<File | null>(null);
-    const [compressedFile, setCompressedFile] = useState<File | null>(null);
+    const [compressedFile, setCompressedFile] = useState<compressedFile>("");
     const [dimensions, setDimensions] = useState<dimension>({
-        width: null,
-        height: null
+        width: 0,
+        height: 0
     })
 
 

@@ -16,7 +16,7 @@ export default function ImageSubmitForm() {
     }
     return (
         <form onSubmit={handleSubmit} >
-            <input onChange={handleUpload} type="file" id='file--input' />
+            <input accept="image/*" onChange={handleUpload} type="file" id='file--input' />
             <label htmlFor="file--input">{file?.name ? file.name : "Upload your File"} <FaRegFileImage /></label>
             <small className="error">Error</small>
         </form>

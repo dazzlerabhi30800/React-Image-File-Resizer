@@ -1,8 +1,8 @@
 import './App.css';
-import { MdOutlineFileDownload } from "react-icons/md";
 import ImageSubmitForm from './components/ImageSubmitForm';
 import DimensionForm from './components/DimensionForm';
 import { useFileContext } from '../store/Context';
+import CompressedImage from './components/CompressedImage';
 
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
         {file &&
           <DimensionForm />
         }
-        {compressedFile &&
-          <button>Download your compressed & resize image <MdOutlineFileDownload /></button>
+        {compressedFile.length > 0 &&
+          <CompressedImage />
         }
       </main>
     </>
