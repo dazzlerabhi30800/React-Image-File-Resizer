@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to top, #221c2a, rgb(23, 25, 36));
+  color: #fff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+#file--input {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: colum;
+  gap: 12px;
+  justify-content: center;
+}
+
+form label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  color: rgb(248, 96, 121);
+  transition: color 0.3s linear;
+}
+
+form label:hover {
+  color: rgb(96, 248, 230);
+}
+
+.error {
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.error.show {
+  transform: scale(1);
+}
+
+button {
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  gap: 1rem;
+  padding: 8px 1rem;
+  border-radius: 5px;
+  background: linear-gradient(to left, rgb(248, 96, 121), rgb(248, 96, 195));
+  transition: 0.3s linear;
+}
+
+
+.dimension--form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 1.5rem;
+}
+
+.input--container {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.dimension--input {
+  border: none;
+  background: none;
+  color: #fff;
+  border: 1px solid rgb(242, 56, 87);
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.dimension--input~label {
+  font-size: 1rem;
+  color: rgb(96, 248, 230);
+}
+
+.dimension--input::placeholder {
+  color: #ccc;
+}
+
+
+.submit--btn {
+  margin: 10px auto;
+  grid-column: 1 / span 3;
+  border: 1px solid transparent;
+  background: rgb(245, 55, 178);
+}
+
+@media (hover:hover) {
+  form label {
+    cursor: pointer;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: linear-gradient(to left, rgb(245, 55, 178), rgb(242, 56, 87));
+  }
+}
