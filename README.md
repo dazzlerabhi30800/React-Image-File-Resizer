@@ -12,7 +12,7 @@
 2. Run the server using ```npm run dev```.
 
 
-### View the Live Site Here [Live Site](https://react-image-file-resizer.vercel.app/)
+### View the Live Site Here <ins>*[Live Site](https://react-image-file-resizer.vercel.app/)*</ins>
 
 
 ### React Image File Resizer
