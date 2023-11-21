@@ -84,6 +84,11 @@ button {
 }
 
 
+.download--btn {
+  text-decoration: none;
+}
+
+
 .dimension--form {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -191,6 +196,10 @@ button {
 
   button {
     cursor: pointer;
+  }
+
+  .download--btn:hover {
+    text-decoration: underline;
   }
 
   button:hover {
