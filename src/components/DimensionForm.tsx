@@ -2,16 +2,18 @@ import { useFileContext } from "../../store/Context";
 import Resizer from 'react-image-file-resizer';
 
 export default function DimensionForm() {
-    const { dimensions, file, setDimensions, setCompressedFile } = useFileContext();
+    const { dimensions, file, setDimensions, setCompressedFile, setLoading } = useFileContext();
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (dimensions.height < 1 || dimensions.width < 1 || !file) {
             alert('Please input valid dimensions');
             return false;
         }
+        setLoading(true);
         const resizedFile: (string | unknown) = await imageResizer(file);
         if (typeof resizedFile == "string") {
             setCompressedFile(resizedFile);
+            setLoading(false);
         }
 
     }
@@ -22,10 +24,12 @@ export default function DimensionForm() {
                 dimensions?.width,
                 dimensions?.height,
                 "PNG",
-                80,
+                100,
                 0,
                 (uri) => {
-                    resolve(uri);
+                    setTimeout(() => {
+                        resolve(uri);
+                    }, 3000);
                 },
                 "base64",
             )

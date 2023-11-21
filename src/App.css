@@ -22,7 +22,12 @@
 main {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
   gap: 3rem;
+}
+
+h1 {
+  font-size: clamp(1.3rem, 2.2vw + 5px, 2.5rem);
 }
 
 #file--input {
@@ -40,7 +45,7 @@ form label {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.3vw, 1.5rem);
   color: rgb(248, 96, 121);
   transition: color 0.3s linear;
 }
@@ -66,18 +71,20 @@ button {
   font-weight: 500;
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
   gap: 1rem;
-  padding: 8px 1rem;
+  padding: 10px 1rem;
   border-radius: 5px;
   background: linear-gradient(to left, rgb(248, 96, 121), rgb(248, 96, 195));
+  margin: 10px auto;
   transition: 0.3s linear;
 }
 
 
 .dimension--form {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: repeat(1, 1fr);
   place-items: center;
   gap: 1.5rem;
 }
@@ -109,9 +116,59 @@ button {
 
 .submit--btn {
   margin: 10px auto;
-  grid-column: 1 / span 3;
   border: 1px solid transparent;
   background: rgb(245, 55, 178);
+}
+
+.result--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.compressed-img {
+  width: 170px;
+  height: 170px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+/* Spinner Styling */
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #f665cd #0000 #fff #0000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin: 1rem auto;
+  animation: 1s rotate linear infinite;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: 10px solid transparent;
+  border-bottom-color: #fff;
+  transform: translate(-10px, 19px) rotate(-35deg);
+}
+
+.loader:after {
+  border-color: #f665cd #0000 #0000 #0000;
+  transform: translate(32px, 3px) rotate(-35deg);
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg)
+  }
 }
 
 @media (hover:hover) {
@@ -125,5 +182,16 @@ button {
 
   button:hover {
     background: linear-gradient(to left, rgb(245, 55, 178), rgb(242, 56, 87));
+  }
+}
+
+
+@media Screen and (min-width: 750px) {
+  .dimension--form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .submit--btn {
+    grid-column: 1 / span 3;
   }
 }

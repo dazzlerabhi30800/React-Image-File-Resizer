@@ -2,12 +2,13 @@ import { useFileContext } from "../../store/Context"
 import { MdOutlineFileDownload } from "react-icons/md";
 
 export default function CompressedImage() {
-    const { compressedFile } = useFileContext();
-    if (!compressedFile) return false;
+    const { compressedFile, file, loading } = useFileContext();
+    if (loading) return false;
     return (
         <div className="result--container">
-            <img src={compressedFile} alt="" />
-            <a href={compressedFile} download className="download--btn">Download your compressed & resize image <MdOutlineFileDownload /></a>
+            <img className="compressed-img" src={compressedFile} alt={file?.name} />
+            <a href={compressedFile} download={file?.name} className="download--btn">Download your compressed & resize image <MdOutlineFileDownload /></a>
         </div>
     )
 }
+

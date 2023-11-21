@@ -17,6 +17,8 @@ interface FileContext {
     setCompressedFile: Dispatch<SetStateAction<compressedFile>>,
     dimensions: dimension,
     setDimensions: Dispatch<SetStateAction<dimension>>,
+    loading: boolean,
+    setLoading: Dispatch<SetStateAction<boolean>>,
 }
 
 export const fileContext = createContext<FileContext | null>(null);
@@ -29,10 +31,11 @@ export default function FileContextProvider({ children }: { children: ReactNode 
         width: 0,
         height: 0
     })
+    const [loading, setLoading] = useState<boolean>(false);
 
 
     return (
-        <fileContext.Provider value={{ file, setFile, compressedFile, setCompressedFile, dimensions, setDimensions }}>
+        <fileContext.Provider value={{ file, setFile, compressedFile, setCompressedFile, dimensions, setDimensions, loading, setLoading }}>
             {children}
         </fileContext.Provider>
     )
